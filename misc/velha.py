@@ -262,7 +262,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Jogo da Idosa"))
         self.xscore.setText(_translate("MainWindow", "Jogador (X): 0"))
         self.oscore.setText(_translate("MainWindow", "Jogador (O): 0"))
         self.reset.setText(_translate("MainWindow", "RESET"))

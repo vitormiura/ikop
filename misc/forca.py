@@ -3,13 +3,14 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
 
 global temp,word,dig,vida
+
 temp = ''
-vida = 7
+vida = 6
 dig = []
 word = ''
 
 class Ui_MainWindow(object):
-
+    
     def comecas(self):
         self.vida1.setVisible(False)
         self.vida2.setVisible(False)
@@ -17,28 +18,30 @@ class Ui_MainWindow(object):
         self.vida4.setVisible(False)
         self.vida5.setVisible(False)
         self.vida6.setVisible(False)
- 
+        self.win.setVisible(False)
+        
     def lifes(self, vida):
         self.vidasTotal.setText(str(vida))
         print(vida)
-        if vida == 7:
+        if vida == 6:
             self.init.setVisible(True)
-        elif vida == 6:
-            self.vida1.setVisible(True)
         elif vida == 5:
-            self.vida2.setVisible(True)
+            self.vida1.setVisible(True)
         elif vida == 4:
-            self.vida3.setVisible(True)
+            self.vida2.setVisible(True)
         elif vida == 3:
-            self.vida4.setVisible(True)
+            self.vida3.setVisible(True)
         elif vida == 2:
-            self.vida5.setVisible(True)
+            self.vida4.setVisible(True)
         elif vida == 1:
+            self.vida5.setVisible(True)
+        elif vida == 0:
             self.vida6.setVisible(True)
+            self.send.setEnabled(False)
             
     def sort(self):
         global word
-        f = open("C:\\Users\\Vitor\\Desktop\\ikop\\misc\\palavras.txt", "r").read()
+        f = open("C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\palavras.txt", "r").read()
         separe = f.replace('\n', '')
         separe = separe.split(";")   
         sort = separe[random.randint(0, len(separe)-1)]
@@ -47,38 +50,50 @@ class Ui_MainWindow(object):
     def game(self):
         global dig, vida, word, temp
 
-        while True:
-            temp = ''
-            letra = self.input.text()
-            self.send.clicked.connect(self.game)
-            dig.append(letra)  
+        temp = ''
+        letra = self.input.text()
+        dig.append(letra)  
 
-            for i in word[0]:
-                if i in dig:
-                    temp += i
-                    
-                else:
-                    temp += "#"
-            
-            if temp == word[0]:
-                #self.mask.setText(word[0])
-                print('win')
+        for i in word[0]:
+            if i in dig:
+                temp += i
                 
-            if letra == word[0]:
-                print("win")
             else:
-                self.mask.setText(temp)
-                print(temp)
+                temp += "#"
+
+        if temp == word[0]:
+            self.mask.setText(letra)
+            self.vida1.setVisible(False)
+            self.vida2.setVisible(False)
+            self.vida3.setVisible(False)
+            self.vida4.setVisible(False)
+            self.vida5.setVisible(False)
+            self.vida6.setVisible(False)
+            self.win.setVisible(True)
+            print("Win")
             
-            if letra not in word[0]:
-                vida -= 1   
-                self.lifes(vida)   
-            break
-        #self.mask.setText(temp)
-        #self.send.clicked.connect(self.game)
+        if letra == word[0]:
+            self.mask.setText(letra)
+            self.vida1.setVisible(False)
+            self.vida2.setVisible(False)
+            self.vida3.setVisible(False)
+            self.vida4.setVisible(False)
+            self.vida5.setVisible(False)
+            self.vida6.setVisible(False)
+            self.win.setVisible(True)
+            print("win")
+            
+        else:
+            self.mask.setText(temp)
+            print(temp)
+        
+        if letra not in word[0]:
+            vida -= 1   
+            self.lifes(vida)   
+
         
     def setupUi(self, MainWindow):
-        global word
+        global word, vida
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(341, 556)
         MainWindow.setStyleSheet("background-color: rgb(250, 250, 250);\n"
@@ -86,52 +101,60 @@ class Ui_MainWindow(object):
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.sort()
+        
         self.init = QtWidgets.QLabel(self.centralwidget)
         self.init.setGeometry(QtCore.QRect(50, 70, 231, 301))
         self.init.setText("")
-        self.init.setPixmap(QtGui.QPixmap("C:\\Users\\Vitor\\Desktop\\ikop\\misc\\hangmonkey\\init.png"))
+        self.init.setPixmap(QtGui.QPixmap("C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\hangmonkey\\init.png"))
         self.init.setScaledContents(True)
         self.init.setObjectName("init")
+        
+        self.win = QtWidgets.QLabel(self.centralwidget)
+        self.win.setGeometry(QtCore.QRect(50, 70, 231, 301))
+        self.win.setText("")
+        self.win.setPixmap(QtGui.QPixmap("C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\hangmonkey\\win.jpg"))
+        self.win.setScaledContents(True)
+        self.win.setObjectName("win")
         
         self.vida1 = QtWidgets.QLabel(self.centralwidget)
         self.vida1.setGeometry(QtCore.QRect(50, 70, 231, 301))
         self.vida1.setText("")
-        self.vida1.setPixmap(QtGui.QPixmap("C:\\Users\\Vitor\\Desktop\\ikop\\misc\\hangmonkey\\macacobraco1.png"))
+        self.vida1.setPixmap(QtGui.QPixmap("C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\hangmonkey\\macacobraco1.png"))
         self.vida1.setScaledContents(True)
         self.vida1.setObjectName("vida1")
         
         self.vida2 = QtWidgets.QLabel(self.centralwidget)
         self.vida2.setGeometry(QtCore.QRect(50, 70, 231, 301))
         self.vida2.setText("")
-        self.vida2.setPixmap(QtGui.QPixmap("C:\\Users\\Vitor\\Desktop\\ikop\\misc\\hangmonkey\\macacobracos.png"))
+        self.vida2.setPixmap(QtGui.QPixmap("C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\hangmonkey\\macacobracos.png"))
         self.vida2.setScaledContents(True)
         self.vida2.setObjectName("vida2")
         
         self.vida3 = QtWidgets.QLabel(self.centralwidget)
         self.vida3.setGeometry(QtCore.QRect(50, 70, 231, 301))
         self.vida3.setText("")
-        self.vida3.setPixmap(QtGui.QPixmap("C:\\Users\\Vitor\\Desktop\\ikop\\misc\\hangmonkey\\macacocabeca.png"))
+        self.vida3.setPixmap(QtGui.QPixmap("C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\hangmonkey\\macacocabeca.png"))
         self.vida3.setScaledContents(True)
         self.vida3.setObjectName("vida3")
         
         self.vida4 = QtWidgets.QLabel(self.centralwidget)
         self.vida4.setGeometry(QtCore.QRect(50, 70, 231, 301))
         self.vida4.setText("")
-        self.vida4.setPixmap(QtGui.QPixmap("C:\\Users\\Vitor\\Desktop\\ikop\\misc\\hangmonkey\\macacocorpo.png"))
+        self.vida4.setPixmap(QtGui.QPixmap("C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\hangmonkey\\macacocorpo.png"))
         self.vida4.setScaledContents(True)
         self.vida4.setObjectName("vida4")
         
         self.vida5 = QtWidgets.QLabel(self.centralwidget)
         self.vida5.setGeometry(QtCore.QRect(50, 70, 231, 301))
         self.vida5.setText("")
-        self.vida5.setPixmap(QtGui.QPixmap("C:\\Users\\Vitor\\Desktop\\ikop\\misc\\hangmonkey\\macacoperna1.png"))
+        self.vida5.setPixmap(QtGui.QPixmap("C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\hangmonkey\\macacoperna1.png"))
         self.vida5.setScaledContents(True)
         self.vida5.setObjectName("vida5")
         
         self.vida6 = QtWidgets.QLabel(self.centralwidget)
         self.vida6.setGeometry(QtCore.QRect(50, 70, 231, 301))
         self.vida6.setText("")
-        self.vida6.setPixmap(QtGui.QPixmap("C:\\Users\\Vitor\\Desktop\\ikop\\misc\\hangmonkey\\macacomorto.png"))
+        self.vida6.setPixmap(QtGui.QPixmap("C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\hangmonkey\\macacomorto.png"))
         self.vida6.setScaledContents(True)
         self.vida6.setObjectName("vida6")
         
@@ -211,7 +234,7 @@ class Ui_MainWindow(object):
         self.mask = QtWidgets.QLabel(self.centralwidget)
         self.mask.setGeometry(QtCore.QRect(40, 390, 231, 20))
         font = QtGui.QFont()
-        font.setPointSize(10)
+        font.setPointSize(15)
         self.mask.setFont(font)
         self.mask.setStyleSheet("background-color: none;\n"
         "color: white;")
@@ -228,6 +251,7 @@ class Ui_MainWindow(object):
         self.element_3.setObjectName("element_3")
         self.element_3.raise_()
         self.init.raise_()
+        self.win.raise_()
         self.vida1.raise_()
         self.vida2.raise_()
         self.vida3.raise_()
@@ -250,11 +274,12 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         self.comecas()
         self.game()
+        self.send.clicked.connect(self.game)
         self.lifes(vida)
-      
+        
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Enforca-Macaco"))
         self.label_2.setText(_translate("MainWindow", "VIDAS:"))
         self.label_4.setText(_translate("MainWindow", "DICA:"))
         self.send.setText(_translate("MainWindow", "SEND"))
