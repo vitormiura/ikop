@@ -2,7 +2,7 @@ from PyQt5 import QtWidgets, uic
 import sys
 from misc import velha as vl
 from misc import menu as mn
-from misc import jokenpo as jk
+from misc import jokenpinhas as jk
 from misc import forca as frc
 
 class Menu(mn.Ui_MainWindow):

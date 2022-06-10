@@ -1,5 +1,5 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-import random, sys
+import random
 
 class Ui_Form(object):
     def setupUi(self, Form):
@@ -9,13 +9,6 @@ class Ui_Form(object):
         Form.setMaximumSize(QtCore.QSize(450, 530))
         Form.setStyleSheet("\n"
 "background-color: rgb(170, 0, 255);")
-        self.titulo = QtWidgets.QLabel(Form)
-        self.titulo.setGeometry(QtCore.QRect(140, 30, 201, 61))
-        self.titulo.setStyleSheet("font: 75 19pt \"MS Shell Dlg 2\";\n"
-"text-decoration: underline;\n"
-"background-color: transparent;\n"
-"")
-        self.titulo.setObjectName("titulo")
         self.btn_pedra = QtWidgets.QPushButton(Form)
         self.btn_pedra.setGeometry(QtCore.QRect(20, 210, 111, 81))
         self.btn_pedra.setStyleSheet("background-color: transparent;")
@@ -32,7 +25,13 @@ class Ui_Form(object):
         self.btn_tesoura.setText("")
         self.btn_tesoura.setObjectName("btn_tesoura")
         self.resposta = QtWidgets.QLabel(Form)
-        self.resposta.setGeometry(QtCore.QRect(90, 330, 271, 51))
+        self.resposta.setGeometry(QtCore.QRect(90, 330, 281, 61))
+        font = QtGui.QFont()
+        font.setFamily("Segoe UI Semibold")
+        font.setPointSize(14)
+        font.setBold(True)
+        font.setWeight(75)
+        self.resposta.setFont(font)
         self.resposta.setStyleSheet("background-color:rgb(255, 255, 255);")
         self.resposta.setText("")
         self.resposta.setObjectName("resposta")
@@ -41,30 +40,17 @@ class Ui_Form(object):
         self.btn_reset.setStyleSheet("background-color: transparent;")
         self.btn_reset.setText("")
         self.btn_reset.setObjectName("btn_reset")
-        self.lineEdit = QtWidgets.QLineEdit(Form)
-        self.lineEdit.setGeometry(QtCore.QRect(50, 120, 281, 31))
-        self.lineEdit.setStyleSheet("background-color: transparent;")
-        self.lineEdit.setObjectName("lineEdit")
-        self.btn_pedra_2 = QtWidgets.QPushButton(Form)
-        self.btn_pedra_2.setGeometry(QtCore.QRect(330, 120, 71, 31))
-        self.btn_pedra_2.setStyleSheet("background-color:rgb(127, 127, 127);")
-        self.btn_pedra_2.setAutoDefault(True)
-        self.btn_pedra_2.setDefault(True)
-        self.btn_pedra_2.setObjectName("btn_pedra_2")
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(0, 0, 451, 531))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("fund-programacao\Python\pyqt\misc\jokenpo\jokepo.png"))
+        self.label.setPixmap(QtGui.QPixmap("C:/Users/Vitor/Desktop/ikop/misc/jokenpo/Jankenpon.png"))
         self.label.setObjectName("label")
         self.label.raise_()
-        self.titulo.raise_()
         self.btn_pedra.raise_()
         self.btn_papel.raise_()
         self.btn_tesoura.raise_()
         self.resposta.raise_()
         self.btn_reset.raise_()
-        self.lineEdit.raise_()
-        self.btn_pedra_2.raise_()
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
@@ -72,8 +58,6 @@ class Ui_Form(object):
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
-        self.titulo.setText(_translate("Form", "Jogo Joken Po!"))
-        self.btn_pedra_2.setText(_translate("Form", "Enter"))
 
 class Jokenpo(Ui_Form):
     
@@ -86,15 +70,8 @@ class Jokenpo(Ui_Form):
         self.btn_papel.clicked.connect(self.papel_click)
         self.btn_tesoura.clicked.connect(self.tesoura_click)
         self.btn_reset.clicked.connect(self.reset)
-        self.btn_pedra_2.clicked.connect(self.username_input)
         __class__.__sortear()
         
-    def username_input(self):
-        username = self.lineEdit.text()
-        text = 'BEM VINDO, ' + str(username)
-        self.titulo.setGeometry(QtCore.QRect(10,30,500,60))
-        self.titulo.setText(text)
-        self.btn_pedra_2.setEnabled(False)
     
     def verificar_vitoria(self):
         if self.escolha == 'pedra' and Jokenpo.escolha == 'tesoura':

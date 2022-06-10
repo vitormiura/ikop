@@ -29,25 +29,6 @@
    <string notr="true">
 background-color: rgb(170, 0, 255);</string>
   </property>
-  <widget class="QLabel" name="titulo">
-   <property name="geometry">
-    <rect>
-     <x>140</x>
-     <y>30</y>
-     <width>201</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">font: 75 19pt &quot;MS Shell Dlg 2&quot;;
-text-decoration: underline;
-background-color: transparent;
-</string>
-   </property>
-   <property name="text">
-    <string>Jogo Joken Po!</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="btn_pedra">
    <property name="geometry">
     <rect>
@@ -101,9 +82,17 @@ background-color: transparent;
     <rect>
      <x>90</x>
      <y>330</y>
-     <width>271</width>
-     <height>51</height>
+     <width>281</width>
+     <height>61</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Segoe UI Semibold</family>
+     <pointsize>14</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color:rgb(255, 255, 255);</string>
@@ -128,41 +117,6 @@ background-color: transparent;
     <string/>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>120</y>
-     <width>281</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: transparent;</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="btn_pedra_2">
-   <property name="geometry">
-    <rect>
-     <x>330</x>
-     <y>120</y>
-     <width>71</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color:rgb(127, 127, 127);</string>
-   </property>
-   <property name="text">
-    <string>Enter</string>
-   </property>
-   <property name="autoDefault">
-    <bool>true</bool>
-   </property>
-   <property name="default">
-    <bool>true</bool>
-   </property>
-  </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
@@ -176,18 +130,15 @@ background-color: transparent;
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap>jokenpo/jokepo.png</pixmap>
+    <pixmap>../jokenpo/Jankenpon.png</pixmap>
    </property>
   </widget>
   <zorder>label</zorder>
-  <zorder>titulo</zorder>
   <zorder>btn_pedra</zorder>
   <zorder>btn_papel</zorder>
   <zorder>btn_tesoura</zorder>
   <zorder>resposta</zorder>
   <zorder>btn_reset</zorder>
-  <zorder>lineEdit</zorder>
-  <zorder>btn_pedra_2</zorder>
  </widget>
  <resources/>
  <connections/>
