@@ -38,7 +38,7 @@ class Ui_MainWindow(object):
         elif vida == 0:
             self.vida6.setVisible(True)
             self.send.setEnabled(False)
-            
+                      
     def sort(self):
         global word
         f = open("C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\palavras.txt", "r").read()
@@ -49,7 +49,6 @@ class Ui_MainWindow(object):
     
     def game(self):
         global dig, vida, word, temp
-
         temp = ''
         letra = self.input.text()
         dig.append(letra)  
@@ -86,6 +85,7 @@ class Ui_MainWindow(object):
         else:
             self.mask.setText(temp)
             print(temp)
+            print(dig)
         
         if letra not in word[0]:
             vida -= 1   
@@ -93,7 +93,8 @@ class Ui_MainWindow(object):
 
         
     def setupUi(self, MainWindow):
-        global word, vida
+        global word, vida, dig
+        dig = []
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(341, 556)
         MainWindow.setStyleSheet("background-color: rgb(250, 250, 250);\n"
