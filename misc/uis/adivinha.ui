@@ -60,7 +60,7 @@
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../../cortinas.png</normaloff>../../../cortinas.png</iconset>
+         <normaloff>../adivinhas/martelo2.png</normaloff>../adivinhas/martelo2.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -83,7 +83,7 @@
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../../sapato.png</normaloff>../../../sapato.png</iconset>
+         <normaloff>../adivinhas/sapato2.png</normaloff>../adivinhas/sapato2.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -106,7 +106,7 @@
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../../sapato.png</normaloff>../../../sapato.png</iconset>
+         <normaloff>../adivinhas/sapato.png</normaloff>../adivinhas/sapato.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -336,7 +336,7 @@
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../../martelo.png</normaloff>../../../martelo.png</iconset>
+         <normaloff>../adivinhas/macaco2.png</normaloff>../adivinhas/macaco2.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -382,7 +382,7 @@
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>../../../cortinas.png</normaloff>../../../cortinas.png</iconset>
+         <normaloff>../adivinhas/martelo.png</normaloff>../adivinhas/martelo.png</iconset>
        </property>
        <property name="iconSize">
         <size>

@@ -94,6 +94,7 @@ class Ui_MainWindow(object):
         
     def setupUi(self, MainWindow):
         global word, vida, dig
+        vida = 6
         dig = []
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(341, 556)
