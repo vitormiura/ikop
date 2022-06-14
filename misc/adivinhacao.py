@@ -1,8 +1,10 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 import numpy as np
+import time
 
 global random, click, dic
 
+playRow = 0
 dic = {}
 random = []
 click = 0
@@ -11,22 +13,22 @@ class Ui_MainWindow(object):
     def sort(self):
         global random
 
-        bascas = "C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\adivinhas\\bascas.png"
-        bascas2 = "C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\adivinhas\\bascas2.png"
-        cortinas = "C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\adivinhas\\cortinas.png"
-        cortinas2 = "C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\adivinhas\\cortinas2.png" 
-        diabin = "C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\adivinhas\\diabin.png"
-        diabin2 = "C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\adivinhas\\diabin2.png"
-        ferrari = "C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\adivinhas\\ferrari.png"
-        ferrari2 = "C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\adivinhas\\ferrari2.png"
-        joia = "C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\adivinhas\\joia.png"
-        joia2 = "C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\adivinhas\\joia2.png"
-        macaco = "C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\adivinhas\\macaco.png"
-        macaco2 = "C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\adivinhas\\macaco2.png"
-        martelo = "C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\adivinhas\\martelo.png"
-        martelo2 = "C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\adivinhas\\martelo2.png"
-        sapato = "C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\adivinhas\\sapato.png"
-        sapato2 = "C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\adivinhas\\sapato2.png"
+        bascas = "misc\\adivinhas\\bascas.png"
+        bascas2 = "misc\\adivinhas\\bascas2.png"
+        cortinas = "misc\\adivinhas\\cortinas.png"
+        cortinas2 = "misc\\adivinhas\\cortinas2.png" 
+        diabin = "misc\\adivinhas\\diabin.png"
+        diabin2 = "misc\\adivinhas\\diabin2.png"
+        ferrari = "misc\\adivinhas\\ferrari.png"
+        ferrari2 = "misc\\adivinhas\\ferrari2.png"
+        joia = "misc\\adivinhas\\joia.png"
+        joia2 = "misc\\adivinhas\\joia2.png"
+        macaco = "misc\\adivinhas\\macaco.png"
+        macaco2 = "misc\\adivinhas\\macaco2.png"
+        martelo = "misc\\adivinhas\\martelo.png"
+        martelo2 = "misc\\adivinhas\\martelo2.png"
+        sapato = "misc\\adivinhas\\sapato.png"
+        sapato2 = "misc\\adivinhas\\sapato2.png"
         
         icons = [bascas, bascas2, cortinas, cortinas2, diabin, diabin2, ferrari, ferrari2, joia, joia2, macaco, macaco2, martelo, martelo2, sapato, sapato2]
         
@@ -35,11 +37,12 @@ class Ui_MainWindow(object):
     def select(self, botas):
         global dic
         print(dic[botas.objectName()])
+        return dic[botas.objectName()]
     
     def game(self):
-        global random, click
+        global random, playRow
         
-        self.a.clicked.connect(lambda:self.select(self.a))
+        self.a.clicked.connect(lambda:self.select(self.a)) 
         self.b1.clicked.connect(lambda:self.select(self.b1))
         self.b2.clicked.connect(lambda:self.select(self.b2))
         self.b3.clicked.connect(lambda:self.select(self.b3))
@@ -56,7 +59,22 @@ class Ui_MainWindow(object):
         self.b14.clicked.connect(lambda:self.select(self.b14))
         self.b15.clicked.connect(lambda:self.select(self.b15))
         
-              
+        mask = ["","","","","","","","","","","","","","",""]
+        
+        # for i in range(buttonArr):
+        #     playRow += 1
+            
+        # if(playRow == 2):
+        #     for i in range(buttonArr):
+        #         self.icon[i].addPixmap(QtGui.QPixmap(mask[z]), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        # else:
+        #     for i in range(buttonArr):
+        #         for z in range(mask):
+        #             self.icon[i].addPixmap(QtGui.QPixmap(mask[z]), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        
+        iconNum = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+        
+         
     def setupUi(self, MainWindow):
         global random, click, dic
         click = 0
@@ -76,10 +94,10 @@ class Ui_MainWindow(object):
         self.b6.setMinimumSize(QtCore.QSize(100, 100))
         self.b6.setText("")
         
-        icon = QtGui.QIcon()
-        icon.addPixmap(QtGui.QPixmap(random[0]), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        icon0 = QtGui.QIcon()
+        icon0.addPixmap(QtGui.QPixmap(random[0]), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         
-        self.b6.setIcon(icon)
+        self.b6.setIcon(icon0)
         self.b6.setIconSize(QtCore.QSize(100, 100))
         self.b6.setObjectName("b6")
         self.gridLayout.addWidget(self.b6, 1, 1, 1, 1)
@@ -292,6 +310,22 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        # self.a = random[0]
+        # self.b1 = random[1]
+        # self.b2 = random[2]
+        # self.b3 = random[3]
+        # self.b4 = random[4]
+        # self.b5 = random[5]
+        # self.b6 = random[6]
+        # self.b7 = random[7]
+        # self.b8 = random[8]
+        # self.b9 = random[9]
+        # self.b10 = random[10]
+        # self.b11 = random[11]
+        # self.b12 = random[12]
+        # self.b13 = random[13]
+        # self.b14 = random[14]
+        # self.b15 = random[15]
         self.game()
         
     def retranslateUi(self, MainWindow):

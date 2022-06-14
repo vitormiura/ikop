@@ -41,7 +41,7 @@ class Ui_MainWindow(object):
                       
     def sort(self):
         global word
-        f = open("C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\palavras.txt", "r").read()
+        f = open("misc\\palavras.txt", "r").read()
         separe = f.replace('\n', '')
         separe = separe.split(";")   
         sort = separe[random.randint(0, len(separe)-1)]
@@ -107,56 +107,56 @@ class Ui_MainWindow(object):
         self.init = QtWidgets.QLabel(self.centralwidget)
         self.init.setGeometry(QtCore.QRect(50, 70, 231, 301))
         self.init.setText("")
-        self.init.setPixmap(QtGui.QPixmap("C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\hangmonkey\\init.png"))
+        self.init.setPixmap(QtGui.QPixmap("misc\\hangmonkey\\init.png"))
         self.init.setScaledContents(True)
         self.init.setObjectName("init")
         
         self.win = QtWidgets.QLabel(self.centralwidget)
         self.win.setGeometry(QtCore.QRect(50, 70, 231, 301))
         self.win.setText("")
-        self.win.setPixmap(QtGui.QPixmap("C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\hangmonkey\\win.jpg"))
+        self.win.setPixmap(QtGui.QPixmap("misc\\hangmonkey\\win.jpg"))
         self.win.setScaledContents(True)
         self.win.setObjectName("win")
         
         self.vida1 = QtWidgets.QLabel(self.centralwidget)
         self.vida1.setGeometry(QtCore.QRect(50, 70, 231, 301))
         self.vida1.setText("")
-        self.vida1.setPixmap(QtGui.QPixmap("C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\hangmonkey\\macacobraco1.png"))
+        self.vida1.setPixmap(QtGui.QPixmap("misc\\hangmonkey\\macacobraco1.png"))
         self.vida1.setScaledContents(True)
         self.vida1.setObjectName("vida1")
         
         self.vida2 = QtWidgets.QLabel(self.centralwidget)
         self.vida2.setGeometry(QtCore.QRect(50, 70, 231, 301))
         self.vida2.setText("")
-        self.vida2.setPixmap(QtGui.QPixmap("C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\hangmonkey\\macacobracos.png"))
+        self.vida2.setPixmap(QtGui.QPixmap("misc\\hangmonkey\\macacobracos.png"))
         self.vida2.setScaledContents(True)
         self.vida2.setObjectName("vida2")
         
         self.vida3 = QtWidgets.QLabel(self.centralwidget)
         self.vida3.setGeometry(QtCore.QRect(50, 70, 231, 301))
         self.vida3.setText("")
-        self.vida3.setPixmap(QtGui.QPixmap("C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\hangmonkey\\macacocabeca.png"))
+        self.vida3.setPixmap(QtGui.QPixmap("misc\\hangmonkey\\macacocabeca.png"))
         self.vida3.setScaledContents(True)
         self.vida3.setObjectName("vida3")
         
         self.vida4 = QtWidgets.QLabel(self.centralwidget)
         self.vida4.setGeometry(QtCore.QRect(50, 70, 231, 301))
         self.vida4.setText("")
-        self.vida4.setPixmap(QtGui.QPixmap("C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\hangmonkey\\macacocorpo.png"))
+        self.vida4.setPixmap(QtGui.QPixmap("misc\\hangmonkey\\macacocorpo.png"))
         self.vida4.setScaledContents(True)
         self.vida4.setObjectName("vida4")
         
         self.vida5 = QtWidgets.QLabel(self.centralwidget)
         self.vida5.setGeometry(QtCore.QRect(50, 70, 231, 301))
         self.vida5.setText("")
-        self.vida5.setPixmap(QtGui.QPixmap("C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\hangmonkey\\macacoperna1.png"))
+        self.vida5.setPixmap(QtGui.QPixmap("misc\\hangmonkey\\macacoperna1.png"))
         self.vida5.setScaledContents(True)
         self.vida5.setObjectName("vida5")
         
         self.vida6 = QtWidgets.QLabel(self.centralwidget)
         self.vida6.setGeometry(QtCore.QRect(50, 70, 231, 301))
         self.vida6.setText("")
-        self.vida6.setPixmap(QtGui.QPixmap("C:\\Users\\ct67ca\\Desktop\\ikop\\misc\\hangmonkey\\macacomorto.png"))
+        self.vida6.setPixmap(QtGui.QPixmap('misc\\hangmonkey\\macacomorto.png'))
         self.vida6.setScaledContents(True)
         self.vida6.setObjectName("vida6")
         

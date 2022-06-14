@@ -43,7 +43,7 @@ class Ui_Form(object):
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(0, 0, 451, 531))
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("C:/Users/ct67ca/Desktop/ikop/misc/jokenpo/Jankenpon.png"))
+        self.label.setPixmap(QtGui.QPixmap("misc/jokenpo/Jankenpon.png"))
         self.label.setObjectName("label")
         self.label.raise_()
         self.btn_pedra.raise_()
